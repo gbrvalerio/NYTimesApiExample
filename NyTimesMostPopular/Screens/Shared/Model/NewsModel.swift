@@ -96,11 +96,11 @@ struct NewsModel : Decodable {
             decodingError = error
         }
         
-        guard facetsArray != nil else {
+        guard facets != nil else {
             throw decodingError!
         }
         
-        return facets
+        return facets!
     }
     
     enum CodingKeys : String, CodingKey {

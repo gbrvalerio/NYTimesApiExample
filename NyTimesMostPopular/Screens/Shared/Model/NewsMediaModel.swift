@@ -8,7 +8,7 @@
 
 import Foundation
 
-static let kNewsMediaImageType = "image"
+let kNewsMediaImageType = "image"
 
 ///The news media model
 ///Format:
