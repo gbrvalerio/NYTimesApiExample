@@ -23,6 +23,8 @@
 		BE87DCAF204D7A5800421576 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE87DCAD204D7A5800421576 /* NewsTableViewCell.swift */; };
 		BE87DCB0204D7A5800421576 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE87DCAE204D7A5800421576 /* NewsTableViewCell.xib */; };
 		BE87DCB3204D83B300421576 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE87DCB2204D83B300421576 /* RoundedImageView.swift */; };
+		BE87DCB5204D881E00421576 /* NyTimesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE87DCB4204D881E00421576 /* NyTimesApi.swift */; };
+		BE87DCB7204D8E0000421576 /* NyTimesApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE87DCB6204D8E0000421576 /* NyTimesApiTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		BE87DCAD204D7A5800421576 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		BE87DCAE204D7A5800421576 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		BE87DCB2204D83B300421576 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		BE87DCB4204D881E00421576 /* NyTimesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NyTimesApi.swift; sourceTree = "<group>"; };
+		BE87DCB6204D8E0000421576 /* NyTimesApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NyTimesApiTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 			children = (
 				BE87DC82204D37F200421576 /* NyTimesMostPopularModelTests.swift */,
 				BE87DC84204D37F200421576 /* Info.plist */,
+				BE87DCB6204D8E0000421576 /* NyTimesApiTests.swift */,
 			);
 			path = NyTimesMostPopularTests;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				BE87DC9E204D40D500421576 /* NewsModel.swift */,
 				BE87DCA0204D42C300421576 /* NewsSection.swift */,
 				BE87DCA5204D4FF800421576 /* NewsMediaModel.swift */,
+				BE87DCB4204D881E00421576 /* NyTimesApi.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 				BE87DC9F204D40D500421576 /* NewsModel.swift in Sources */,
 				BE87DCA8204D730000421576 /* NewsPresenterView.swift in Sources */,
 				BE87DC9D204D3FCF00421576 /* NyTimesApiResultModel.swift in Sources */,
+				BE87DCB5204D881E00421576 /* NyTimesApi.swift in Sources */,
 				BE87DCB3204D83B300421576 /* RoundedImageView.swift in Sources */,
 				BE87DCA6204D4FF800421576 /* NewsMediaModel.swift in Sources */,
 				BE87DCAB204D735C00421576 /* NewsViewModel.swift in Sources */,
@@ -352,6 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE87DCB7204D8E0000421576 /* NyTimesApiTests.swift in Sources */,
 				BE87DC83204D37F200421576 /* NyTimesMostPopularModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
