@@ -47,12 +47,11 @@ class NyTimesApi {
             } catch let decodeError {
                 onError(decodeError)
             }
-        })
-        
+        }).resume()
     }
     
     private static func apiUrl(section:NewsSection, timePeriod:NewsTimePeriod) -> URL? {
-        let urlString = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/\(section.rawValue)/\(timePeriod.rawValue).json?api-key=\(apiKey)"
+        let urlString = "https://api.nytimes.com/svc/mostpopular/v2/mostviewed/\(section.rawValue)/\(timePeriod.rawValue).json?api-key=\(apiKey)"
         return URL(string: urlString)
     }
     

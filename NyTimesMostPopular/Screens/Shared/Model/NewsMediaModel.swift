@@ -39,7 +39,7 @@ struct NewsMediaImageModel : Decodable {
         self.subtype = try container.decodeIfPresent(String.self, forKey: .subtype) ?? ""
         self.caption = try container.decodeIfPresent(String.self, forKey: .caption) ?? ""
         self.copyright = try container.decodeIfPresent(String.self, forKey: .copyright) ?? ""
-        self.metadata = try container.decodeIfPresent([NewsMediaMetadataImageModel].self, forKey: .metadata) ?? []
+        self.metadata = (try container.decodeIfPresent([NewsMediaMetadataImageModel].self, forKey: .metadata) ?? []).filter { !$0.url.isEmpty }
     }
     
     private enum CodingKeys : String, CodingKey {
@@ -68,11 +68,36 @@ struct NewsMediaMetadataImageModel : Decodable {
     ///The image width
     let width:Int
     
+    init(from decoder: Decoder) throws {
+         let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.url = try container.decodeIfPresent(String.self, forKey: .url) ?? ""
+        self.format = try container.decodeIfPresent(NewsMediaMetadataImageModelFormat.self, forKey: .format) ?? .unknown
+        self.height = try container.decodeIfPresent(Int.self, forKey: .height) ?? 0
+        self.width = try container.decodeIfPresent(Int.self, forKey: .width) ?? 0
+    }
+    
+    private enum CodingKeys : String, CodingKey {
+        case url
+        case format
+        case height
+        case width
+    }
+    
 }
 
 ///All the supported image formats by the NYTimes api
 enum NewsMediaMetadataImageModelFormat : String, Decodable {
     case thumbnail = "Standard Thumbnail"
+    case largeThumbnail = "Large Thumbnail"
     case medium210 = "mediumThreeByTwo210"
     case medium440 = "mediumThreeByTwo440"
+    case square320 = "square320"
+    case square640 = "square640"
+    case normal = "Normal"
+    case large = "Large"
+    case jumbo = "Jumbo"
+    case superJumbo = "superJumbo"
+    case unknown
+
 }

@@ -68,7 +68,7 @@ struct NewsModel : Decodable {
         self.organizationFacets = try NewsModel.decode(facet: .organizationFacets, from: container)
         self.personsFacets = try NewsModel.decode(facet: .personFacets, from: container)
         self.geographycFacets = try NewsModel.decode(facet: .geographycFacets, from: container)
-        self.media = try container.decodeIfPresent([NewsMediaImageModel].self, forKey: .media) ?? []
+        self.media = (try? container.decode([NewsMediaImageModel].self, forKey: .media)) ?? []
     }
     
     ///Correctly decodes the facets. It can be an array of strings or a string itself. This method provides a safe wrapper for decoding.

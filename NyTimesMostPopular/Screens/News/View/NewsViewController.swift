@@ -10,14 +10,19 @@ import UIKit
 
 class NewsViewController: UIViewController, NewsPresenterView, UITableViewDataSource, UITableViewDelegate {
     
+    //MARK: - Properties
     private var actualDisplayingNews:[NewsViewModel] = []
+    private lazy var presenter = NewsPresenter(view: self)
 
+    //MARK: - Outlets
     @IBOutlet weak var newsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         newsTableView.register(NewsTableViewCell.nib, forCellReuseIdentifier: NewsTableViewCell.identifier)
+        
+        presenter.present()
     }
     
     //MARK: - Presentations
@@ -25,27 +30,34 @@ class NewsViewController: UIViewController, NewsPresenterView, UITableViewDataSo
     ///Tells the view to display the news.
     func show(news:[NewsViewModel]) {
         self.actualDisplayingNews = news
-        newsTableView.reloadData()
+        
+        DispatchQueue.main.async {
+            self.newsTableView.reloadData()
+        }
     }
     
     ///Tells the view to display the message for no avaliable news.
     func showEmptyMessage() {
-        
+        let alert = UIAlertController(title: "No results!", message: "No result was found for your search parameters!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     ///Tells the view to display a loading indicator.
     func startLoading() {
-        
+        view.startLoading()
     }
     
     ///Tells the view to dismiss any possible loading indicator.
     func stopLoading() {
-        
+        view.stopLoading()
     }
     
     ///Tells the view to show the connection error message.
     func showConnectionErrorMessage() {
-        
+        let alert = UIAlertController(title: "Connection error!", message: "It was not possible to connect to the NYTimes API!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     //MARK: - Tableview protocols

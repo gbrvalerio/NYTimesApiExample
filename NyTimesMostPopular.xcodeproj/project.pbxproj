@@ -25,6 +25,8 @@
 		BE87DCB3204D83B300421576 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE87DCB2204D83B300421576 /* RoundedImageView.swift */; };
 		BE87DCB5204D881E00421576 /* NyTimesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE87DCB4204D881E00421576 /* NyTimesApi.swift */; };
 		BE87DCB7204D8E0000421576 /* NyTimesApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE87DCB6204D8E0000421576 /* NyTimesApiTests.swift */; };
+		BE87DCB9204D910E00421576 /* NewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE87DCB8204D910E00421576 /* NewsPresenter.swift */; };
+		BE87DCBB204E9EB700421576 /* View+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE87DCBA204E9EB700421576 /* View+Loading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		BE87DCB2204D83B300421576 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		BE87DCB4204D881E00421576 /* NyTimesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NyTimesApi.swift; sourceTree = "<group>"; };
 		BE87DCB6204D8E0000421576 /* NyTimesApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NyTimesApiTests.swift; sourceTree = "<group>"; };
+		BE87DCB8204D910E00421576 /* NewsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresenter.swift; sourceTree = "<group>"; };
+		BE87DCBA204E9EB700421576 /* View+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Loading.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,7 @@
 		BE87DC99204D3D6000421576 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				BE87DCB8204D910E00421576 /* NewsPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				BE87DCB2204D83B300421576 /* RoundedImageView.swift */,
+				BE87DCBA204E9EB700421576 /* View+Loading.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -344,6 +350,8 @@
 				BE87DC90204D3CB100421576 /* NewsViewController.swift in Sources */,
 				BE87DC6E204D37F200421576 /* AppDelegate.swift in Sources */,
 				BE87DCA1204D42C300421576 /* NewsSection.swift in Sources */,
+				BE87DCBB204E9EB700421576 /* View+Loading.swift in Sources */,
+				BE87DCB9204D910E00421576 /* NewsPresenter.swift in Sources */,
 				BE87DC9F204D40D500421576 /* NewsModel.swift in Sources */,
 				BE87DCA8204D730000421576 /* NewsPresenterView.swift in Sources */,
 				BE87DC9D204D3FCF00421576 /* NyTimesApiResultModel.swift in Sources */,

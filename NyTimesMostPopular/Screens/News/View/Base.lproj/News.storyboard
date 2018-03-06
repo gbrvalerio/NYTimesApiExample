@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--News View Controller-->
+        <!--NYT Most Viewed-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="NewsViewController" customModule="NyTimesMostPopular" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="NYT Most Viewed" id="BYZ-38-t0r" customClass="NewsViewController" customModule="NyTimesMostPopular" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jay-MP-ep1"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="NYT Most Viewed" id="jay-MP-ep1">
+                        <barButtonItem key="rightBarButtonItem" title="Filter" id="bNe-g3-VmW"/>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="newsTableView" destination="78C-nI-NKs" id="bXM-of-hWu"/>
                         <segue destination="e7k-mI-LXx" kind="show" id="luI-Gy-ZEi"/>

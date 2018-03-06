@@ -65,7 +65,7 @@ enum NewsSection : String, Decodable {
     case membercenter = "membercenter"
     case movies = "Movies"
     case multimedia = "Multimedia"
-    case nyRegion = "N.Y.%20%2F%20Region"
+    case nyRegion = "N.Y. / Region"
     case nytNow = "NYT Now"
     case obituaries = "Obituaries"
     case open = "Open"
@@ -86,6 +86,7 @@ enum NewsSection : String, Decodable {
     case us = "U.S."
     case world = "World"
     case yourMoney = "Your Money"
+    case well = "Well"
     case all = "all-sections"
     
 }

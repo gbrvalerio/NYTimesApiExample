@@ -48,7 +48,7 @@ struct NyTimesApiResultModel : Decodable {
         self.status = try container.decode(String.self, forKey: .status)
         self.copyright = try container.decode(String.self, forKey: .copyright)
         self.numberOfNews = try container.decode(Int.self, forKey: .numberOfNews)
-        self.news = try container.decode([NewsModel].self, forKey: .news)
+        self.news = (try? container.decode([NewsModel].self, forKey: .news)) ?? []
     }
     
     private enum CodingKeys : String, CodingKey {
