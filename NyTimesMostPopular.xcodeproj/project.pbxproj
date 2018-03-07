@@ -68,6 +68,7 @@
 		BE87DCC3204ED28D00421576 /* NewsSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE87DCC4204ED28D00421576 /* NewsSectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsSectionCollectionViewCell.xib; sourceTree = "<group>"; };
 		BE87DCC7204F826200421576 /* TagsFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsFlowLayout.swift; sourceTree = "<group>"; };
+		BEDB8623204FF10D00B6380A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +92,7 @@
 		BE87DC61204D37F200421576 = {
 			isa = PBXGroup;
 			children = (
+				BEDB8623204FF10D00B6380A /* README.md */,
 				BE87DC6C204D37F200421576 /* NyTimesMostPopular */,
 				BE87DC81204D37F200421576 /* NyTimesMostPopularTests */,
 				BE87DC6B204D37F200421576 /* Products */,

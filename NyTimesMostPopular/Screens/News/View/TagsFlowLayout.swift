@@ -19,11 +19,15 @@ class TagsFlowLayout : UICollectionViewFlowLayout {
         actualAttributes.forEach { attribute in
             //if is the left most cell
             if attribute.frame.minX == sectionInset.left {
+                //we use it as rule for margin
                 trailingMarginSum = sectionInset.left
             } else {
+                //we sum all the previous calculated margin
                 attribute.frame.origin.x = trailingMarginSum
             }
             
+            //each iteraction we sum the width of the actual cell and also sum the spacing in order to prevent
+            //the cells of being glued to each other
             trailingMarginSum += attribute.frame.width + minimumInteritemSpacing
         }
         
