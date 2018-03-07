@@ -65,7 +65,7 @@ enum NewsSection : String, Decodable {
     case membercenter = "membercenter"
     case movies = "Movies"
     case multimedia = "Multimedia"
-    case nyRegion = "N.Y. / Region"
+    case nyRegion = "N.Y.%20%2F%20Region"
     case nytNow = "NYT Now"
     case obituaries = "Obituaries"
     case open = "Open"
@@ -88,5 +88,13 @@ enum NewsSection : String, Decodable {
     case yourMoney = "Your Money"
     case well = "Well"
     case all = "all-sections"
+    
+    static let allCases:[NewsSection] = [
+        .arts, .automobiles, .blogs, .books, .businessDay, .education,
+        .fashionAndStyle, .food, .health, .jobMarket, .magazine, .membercenter,
+        .movies, .multimedia, .nyRegion, .nytNow, .obituaries, .open, .opinion,
+        .publicEditor, .realEstate, .science, .sports, .style, .sundayReview, .tMagazine,
+        .technology, .theUpshot, .theather, .timesInsider, .todaysPaper, .travel, .us, .world, .well, .yourMoney, .all
+    ]
     
 }

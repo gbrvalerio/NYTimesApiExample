@@ -24,7 +24,7 @@ extension NewsModel {
     }
     
     var viewModel:NewsViewModel {
-        let thumbnailMedatada = firstMediaImage?.metadata.first(where: { $0.format == .thumbnail })
+        let thumbnailMedatada = firstMediaImage?.metadata.first(where: { $0.format == .thumbnail || $0.format == .largeThumbnail })
         return NewsViewModel(title: title, byline: byline, publishDate: publishDate, thumbnailMetadata: thumbnailMedatada)
     }
     

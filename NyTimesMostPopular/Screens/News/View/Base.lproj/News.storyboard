@@ -38,25 +38,104 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="NYT Most Viewed" id="jay-MP-ep1">
-                        <barButtonItem key="rightBarButtonItem" title="Filter" id="bNe-g3-VmW"/>
+                        <barButtonItem key="backBarButtonItem" title="News" id="42t-NZ-9SM"/>
+                        <barButtonItem key="rightBarButtonItem" title="Filter" id="bNe-g3-VmW">
+                            <connections>
+                                <segue destination="czY-d7-rch" kind="presentation" identifier="FilterSegue" id="HJ1-HE-vJO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="newsTableView" destination="78C-nI-NKs" id="bXM-of-hWu"/>
-                        <segue destination="e7k-mI-LXx" kind="show" id="luI-Gy-ZEi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="456.80000000000001" y="117.39130434782609"/>
+            <point key="canvasLocation" x="463" y="116"/>
         </scene>
-        <!--NewsDetail-->
-        <scene sceneID="COP-gJ-j5d">
+        <!--Filter-->
+        <scene sceneID="lWP-TW-O3B">
             <objects>
-                <viewControllerPlaceholder storyboardName="NewsDetail" id="e7k-mI-LXx" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gPF-qU-u1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="Filter" id="F1d-hm-cxq" customClass="NewsFilterViewController" customModule="NyTimesMostPopular" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jg0-BG-jZQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Section:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qE-Dz-BW1">
+                                <rect key="frame" x="16" y="161" width="62.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Z0-CX-eez">
+                                <rect key="frame" x="16" y="198" width="343" height="437"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fpf-pd-cN9" customClass="TagsFlowLayout" customModule="NyTimesMostPopular" customModuleProvider="target">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="F1d-hm-cxq" id="pD2-Ze-v9s"/>
+                                    <outlet property="delegate" destination="F1d-hm-cxq" id="Swk-Zu-D73"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDE-fE-De4">
+                                <rect key="frame" x="16" y="80" width="42.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="va6-AZ-Rkd">
+                                <rect key="frame" x="16" y="117" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Day"/>
+                                    <segment title="Week"/>
+                                    <segment title="Month"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="w3R-jO-AP1" firstAttribute="trailing" secondItem="9Z0-CX-eez" secondAttribute="trailing" constant="16" id="6cg-4a-jEz"/>
+                            <constraint firstItem="sDE-fE-De4" firstAttribute="leading" secondItem="w3R-jO-AP1" secondAttribute="leading" constant="16" id="8ch-jU-eOQ"/>
+                            <constraint firstItem="sDE-fE-De4" firstAttribute="top" secondItem="w3R-jO-AP1" secondAttribute="top" constant="16" id="9BA-tp-k17"/>
+                            <constraint firstItem="w3R-jO-AP1" firstAttribute="trailing" secondItem="va6-AZ-Rkd" secondAttribute="trailing" constant="16" id="Gky-Fx-vcZ"/>
+                            <constraint firstItem="2qE-Dz-BW1" firstAttribute="leading" secondItem="w3R-jO-AP1" secondAttribute="leading" constant="16" id="ICO-P3-ii3"/>
+                            <constraint firstItem="w3R-jO-AP1" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sDE-fE-De4" secondAttribute="trailing" constant="16" id="P0E-4T-dUX"/>
+                            <constraint firstItem="w3R-jO-AP1" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2qE-Dz-BW1" secondAttribute="trailing" constant="16" id="RXG-En-8mB"/>
+                            <constraint firstItem="9Z0-CX-eez" firstAttribute="leading" secondItem="w3R-jO-AP1" secondAttribute="leading" constant="16" id="SZc-RE-4gL"/>
+                            <constraint firstItem="9Z0-CX-eez" firstAttribute="top" secondItem="2qE-Dz-BW1" secondAttribute="bottom" constant="16" id="W6r-fa-UYQ"/>
+                            <constraint firstItem="w3R-jO-AP1" firstAttribute="bottom" secondItem="9Z0-CX-eez" secondAttribute="bottom" constant="32" id="hYY-Th-uKG"/>
+                            <constraint firstItem="va6-AZ-Rkd" firstAttribute="top" secondItem="sDE-fE-De4" secondAttribute="bottom" constant="16" id="hxU-cZ-JlJ"/>
+                            <constraint firstItem="2qE-Dz-BW1" firstAttribute="top" secondItem="va6-AZ-Rkd" secondAttribute="bottom" constant="16" id="q4y-L0-nUr"/>
+                            <constraint firstItem="va6-AZ-Rkd" firstAttribute="leading" secondItem="w3R-jO-AP1" secondAttribute="leading" constant="16" id="uI8-2W-06y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="w3R-jO-AP1"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Filter" id="Bhi-HU-FfZ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4eN-T0-udW">
+                            <connections>
+                                <action selector="onCancelButton:" destination="F1d-hm-cxq" id="pVd-OX-7qB"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="mDk-E5-oqT">
+                            <connections>
+                                <action selector="onDoneButton:" destination="F1d-hm-cxq" id="yAY-pa-8We"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sectionTagsCollectionView" destination="9Z0-CX-eez" id="nxv-oK-T4c"/>
+                        <outlet property="timeSegmentedControl" destination="va6-AZ-Rkd" id="fNM-Co-pFB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jar-12-pvv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1124" y="116"/>
+            <point key="canvasLocation" x="2111" y="116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ncl-ZS-WRa">
@@ -75,6 +154,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nrg-J9-Pm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-452" y="117"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9jT-ee-bco">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="czY-d7-rch" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ePl-GD-j6J">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="F1d-hm-cxq" kind="relationship" relationship="rootViewController" id="VBi-B8-oj8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4TZ-9X-5uK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1287" y="116"/>
         </scene>
     </scenes>
 </document>

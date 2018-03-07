@@ -8,6 +8,14 @@
 
 import Foundation
 
+enum NewsTimePeriod : Int {
+    case day = 1
+    case week = 7
+    case month = 30
+    
+    static let allCases:[NewsTimePeriod] = [.day, .week, .month]
+}
+
 ///Api News Model
 ///{
 ///  "url": "string",
@@ -58,7 +66,7 @@ struct NewsModel : Decodable {
         
         self.url = try container.decodeIfPresent(String.self, forKey: .url) ?? ""
         self.column = try container.decodeIfPresent(String.self, forKey: .column) ?? ""
-        self.section = try container.decodeIfPresent(NewsSection.self, forKey: .section) ?? .all
+        self.section = (try? container.decode(NewsSection.self, forKey: .section)) ?? .all
         self.byline = try container.decodeIfPresent(String.self, forKey: .byline) ?? ""
         self.title = try container.decodeIfPresent(String.self, forKey: .title) ?? ""
         self.abstract = try container.decodeIfPresent(String.self, forKey: .abstract) ?? ""

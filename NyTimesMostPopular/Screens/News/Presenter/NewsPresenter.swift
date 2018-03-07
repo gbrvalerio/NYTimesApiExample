@@ -6,7 +6,7 @@
 //  Copyright © 2018 Particular. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class NewsPresenter {
     
@@ -15,20 +15,39 @@ class NewsPresenter {
     
     private var presentingNews:[NewsModel] = []
     
+    private var presentingSection:NewsSection = .all
+    private var presentingTimePeriod:NewsTimePeriod = .week
+    private var shouldFetchApi:Bool = false
+    
+    ///Default initializer
     init(view:NewsPresenterView) {
         self.view = view
     }
     
+    ///Starts the presentations
     func present() {
+        fetchApi()
+    }
+    
+    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let filterVc = (segue.destination as? UINavigationController)?.topViewController as? NewsFilterViewController {
+            filterVc.selectedSection = self.presentingSection
+            filterVc.selectedTimePeriod = self.presentingTimePeriod
+            filterVc.onUserDidUpdateFilter = self.onUserDidFilter
+            filterVc.onDismiss = self.onFilterDismissed
+        }
+    }
+    
+    private func fetchApi() {
         view?.startLoading()
         
-        api.fetchMostViewed(section: .blogs, timePeriod: .month, onSuccess: didFetchApi) { (error) in
+        api.fetchMostViewed(section: presentingSection, timePeriod: presentingTimePeriod, onSuccess: didFetchApi) { (error) in
             self.view?.stopLoading()
             self.view?.showConnectionErrorMessage()
         }
     }
     
-    func didFetchApi(_ result:NyTimesApiResultModel) {
+    private func didFetchApi(_ result:NyTimesApiResultModel) {
         guard result.status == "OK" else {
             return
         }
@@ -46,4 +65,26 @@ class NewsPresenter {
         view?.stopLoading()
     }
     
+    //MARK: - User Input
+    
+    ///Called whenver the user inputs a refresh
+    func onUserWantsToRefresh() {
+        fetchApi()
+    }
+    
+    //Called whenever the user picks any new filtering options
+    func onUserDidFilter(_ section:NewsSection, _ timePeriod:NewsTimePeriod) {
+        self.presentingSection = section
+        self.presentingTimePeriod = timePeriod
+        
+        shouldFetchApi = true
+    }
+    
+    //Called whenever the filter screen is dismissed
+    func onFilterDismissed() {
+        if shouldFetchApi {
+            fetchApi()
+            shouldFetchApi = false
+        }
+    }
 }

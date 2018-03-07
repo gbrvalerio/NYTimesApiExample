@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum NewsTimePeriod : Int {
-    case day = 1
-    case week = 7
-    case month = 30
-}
-
 class NyTimesApi {
     
     typealias FetchSuccessCallback = (NyTimesApiResultModel) -> Void
